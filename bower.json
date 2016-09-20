@@ -1,0 +1,26 @@
+{
+  "name": "the1056",
+  "authors": [
+    "Richard Bailey <additive.inverse@gmail.com>"
+  ],
+  "description": "the site for the label of the same name",
+  "main": "index.html",
+  "keywords": [
+    "1056",
+    "sanctuary"
+  ],
+  "license": "MIT",
+  "homepage": "www.the1056.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "trianglify": "^1.0.0",
+    "bootstrap": "^3.3.7"
+  }
+}
