@@ -1,4 +1,4 @@
-module.exports = function ( grunt ) {
+module.exports = function(grunt) {
 	var name = "<%= pkg.name %>-v<%= pkg.version%>"
 	var reports = "reports/<%= pkg.name %>-"
 
@@ -16,7 +16,8 @@ module.exports = function ( grunt ) {
 			dist: {
 				root: "dist/",
 				img: "dist/img/",
-				js: "dist/js/"
+				js: "dist/js/",
+				css: "dist/css/"
 			}
 		},
 
@@ -30,15 +31,22 @@ module.exports = function ( grunt ) {
 
 		// ///////////////////////////////////////////////////////////////// scaffold
 		copy: {
-			twbs_lib: {
+			twbs_less: {
 				expand: true,
-				flatten: true,
+				cwd: "<%= config.lib %>bootstrap/less",
+				src: [
+					"**/*.less"
+				],
+				dest: "<%= config.app.root %>less/twbs/"
+			},
+			twbs_font: {
+				expand: true,
 				cwd: "<%= config.lib %>bootstrap/",
 				src: [
-					"less/*.less", "fonts/*"
+					"fonts/*"
 				],
-				dest: "<%= config.app.root %>"
-			}
+				dest: "<%= config.dist.root %>"
+			},
 			jslib: {
 				expand: true,
 				flatten: true,
@@ -77,7 +85,7 @@ module.exports = function ( grunt ) {
 				options: {
 					cleancss: false
 				},
-				files: {"<%= config.dist.root %>the1056.css": ["<%= config.app.less %>global.less"] }
+				files: {"<%= config.dist.css %>1056.css": ["<%= config.app.less %>global.less"] }
 			},
 			production: {
 				options: {
@@ -85,7 +93,7 @@ module.exports = function ( grunt ) {
 					compress: true,
 					cleancss: true
 				},
-				files: {"<%= config.dist.root %>the1056.css": ["<%= config.app.less %>global.less"] }
+				files: {"<%= config.dist.css %>1056.css": ["<%= config.app.less %>global.less"] }
 			}
 		},
 
@@ -141,10 +149,9 @@ module.exports = function ( grunt ) {
 			server: {
 				options: {
 					port: "9001",
-					base: "build/",
+					base: "dist/",
 					protocol: "http",
 					hostname: "localhost",
-					livereload: true,
 					open: {
 						target: "http://localhost:9001/index.html", // target url to open
 						appName: "Chrome"
@@ -163,7 +170,7 @@ module.exports = function ( grunt ) {
 				options: {
 					reload: true,
 					livereload: true,
-					spawn: true,
+					spawn: false,
 					dateFormat: function ( time ) {
 						grunt.log.writeln( "The watch finished in " + time + "ms at" + ( new Date( ) ).toString( ) )
 					}
@@ -175,7 +182,7 @@ module.exports = function ( grunt ) {
 	require( "matchdep" ).filterDev( "grunt-*" ).forEach( grunt.loadNpmTasks )
 
 	// init
-	// grunt.registerTask( "devint", [ "concat", "copy", "ngtemplates", "imgprep", "dataprep" ] )
+	grunt.registerTask( "devint", [ "concat", "copy" ] )
 
 	// Develop
 	grunt.registerTask( "default", [ "connect", "watch" ] )

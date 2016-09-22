@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani:300,700|Work+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/1056.css">
+    <script src="/js/trianglify.min.js"></script>
+  </head>
+  <body class="page page-index">
+    <header class="page-main page-main-index">
+      <section class="page-main-top">
+        <h1 class="title">the 1056</h1><img src="img/1056.svg">
+        <h2>the one thousand fifty six</h2>
+      </section>
+      <div class="page-main-border"></div>
+    </header>
+    <main class="page-main-mid">
+      <ul class="list-unstyled">
+        <li class="list-item">LR30
+        </li>
+        <li class="list-item">LR29
+        </li>
+        <li class="list-item">LR28
+        </li>
+        <li class="list-item">LR27
+        </li>
+        <li class="list-item">LR26
+        </li>
+        <li class="list-item">LR25
+        </li>
+        <li class="list-item">LR24
+        </li>
+        <li class="list-item">LR23
+        </li>
+        <li class="list-item">LR22
+        </li>
+        <li class="list-item">LR21
+        </li>
+        <li class="list-item">LR20
+        </li>
+        <li class="list-item">LR19
+        </li>
+        <li class="list-item">LR18
+        </li>
+        <li class="list-item">LR17
+        </li>
+        <li class="list-item">LR16
+        </li>
+        <li class="list-item">LR15
+        </li>
+        <li class="list-item">LR14
+        </li>
+        <li class="list-item">LR13
+        </li>
+        <li class="list-item">LR12
+        </li>
+        <li class="list-item">LR11
+        </li>
+        <li class="list-item">LR10
+        </li>
+        <li class="list-item">LR9
+        </li>
+        <li class="list-item">LR8
+        </li>
+        <li class="list-item">LR7
+        </li>
+        <li class="list-item">LR6
+        </li>
+        <li class="list-item">LR5
+        </li>
+        <li class="list-item">LR4
+        </li>
+        <li class="list-item">LR3
+        </li>
+        <li class="list-item">LR2
+        </li>
+        <li class="list-item">LR1
+        </li>
+        <li class="list-item"> <span class="glyphicon glyphicon-refresh"></span></li>
+      </ul>
+    </main>
+    <script>
+      var elem = document.querySelector( '.page-main' );
+      var pattern = Trianglify({
+      	width: window.innerWidth,
+      	height: elem.offsetHeight,
+      	cell_size: 105,
+      	variance: 1,
+      	color_space: 'rgb',
+      	x_colors: 'Spectral'
+      
+      });
+      var m = new XMLSerializer().serializeToString( pattern.svg() );
+      var k = window.btoa(m);
+      
+      elem.style.backgroundImage = 'url("data:image/svg+xml;base64,' + k + '")';
+      
+      var el = document.querySelector('.page-main-border');
+      var width = el.offsetWidth / 2;
+      el.setAttribute('style', 'border-left-width: ' + width + 'px; border-right-width: ' + width + 'px;' );
+      
+      window.addEventListener( 'resize', function(event) {
+      	el.setAttribute('style', 'border-left-width: ' + width + 'px; border-right-width: ' + width + 'px;' );
+      });
+    </script>
+  </body>
+</html>

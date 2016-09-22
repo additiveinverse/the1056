@@ -12,11 +12,48 @@ html( lang='en' )
 			title
 				block title
 					= name
-			link( rel="stylesheet", type='text/css', href='http://fonts.googleapis.com/css?family=Poppins:300|Comfortaa:400,700' )
-			link( rel='stylesheet', type='text/css', href='css/layout.min.css' )
+
+			link( href="https://fonts.googleapis.com/css?family=Rajdhani:300,700|Work+Sans", rel="stylesheet")
 			link( rel='stylesheet', type='text/css', href='css/1056.css' )
-			script( src='/js/app.min.js' )
+			script( src='/js/trianglify.min.js' )
 
 	body( class='page page-' + bodyclass )
-		main( class='page-main-' + bodyclass  )
-			h1.page-header the 1056
+		header( class='page-main page-main-' + bodyclass  )
+			section.page-main-top
+				h1.title the 1056
+				img( src="img/1056.svg" )
+				h2 the one thousand fifty six
+			.page-main-border
+
+		main.page-main-mid
+			- var n = 30;
+			ul.list-unstyled
+				while n > 0
+					li.list-item LR
+						= n--
+				li.list-item 
+					span.glyphicon.glyphicon-refresh
+					
+		script.
+				var elem = document.querySelector( '.page-main' );
+				var pattern = Trianglify({
+					width: window.innerWidth,
+					height: elem.offsetHeight,
+					cell_size: 105,
+					variance: 1,
+					color_space: 'rgb',
+					x_colors: 'Spectral'
+
+				});
+				var m = new XMLSerializer().serializeToString( pattern.svg() );
+				var k = window.btoa(m);
+
+				elem.style.backgroundImage = 'url("data:image/svg+xml;base64,' + k + '")';
+
+				var el = document.querySelector('.page-main-border');
+				var width = el.offsetWidth / 2;
+				el.setAttribute('style', 'border-left-width: ' + width + 'px; border-right-width: ' + width + 'px;' );
+
+				window.addEventListener( 'resize', function(event) {
+					el.setAttribute('style', 'border-left-width: ' + width + 'px; border-right-width: ' + width + 'px;' );
+				});
