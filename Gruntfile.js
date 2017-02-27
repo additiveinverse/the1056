@@ -121,9 +121,9 @@ module.exports = function(grunt) {
 					collapseWhitespace: true
 				},
 				expand: true,
-				cwd: "<%= config.dist.root %>test/",
+				cwd: "<%= config.dist.root %>",
 				src: "*.html",
-				dest: "<%= config.dist.root %>test/"
+				dest: "<%= config.dist.root %>"
 			}
 		},
 
