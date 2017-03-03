@@ -126,7 +126,20 @@ module.exports = function(grunt) {
 				dest: "<%= config.dist.root %>"
 			}
 		},
-
+		imagemin: {
+			dynamic: {
+				options: {
+					optimizationLevel: 5,
+					pngquant: true
+				},
+				files: [ {
+					expand: true,
+					cwd: "<%= config.app.img %>",
+					src: [ "**/*.{png,jpg,gif,svg}" ],
+					dest: "<%= config.dist.img %>"
+				} ]
+			}
+		},
 		// ///////////////////////////////////////////////////////////////// build / deploy / workflow
 		bump: {
 			options: {
@@ -166,9 +179,9 @@ module.exports = function(grunt) {
 					"Gruntfile.js",
 					"<%= config.app.root %>**/*"
 				],
-				tasks: [ "pug", "less:dev" ],
+				tasks: [ "pug", "less:dev", "newer:imagemin" ],
 				options: {
-					reload: true,
+					reload: false,
 					livereload: true,
 					spawn: false,
 					dateFormat: function ( time ) {

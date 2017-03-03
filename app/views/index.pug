@@ -19,21 +19,33 @@ html( lang='en' )
 
 	body( class='page page-' + bodyclass )
 		header( class='page-main page-main-' + bodyclass  )
-			section.page-main-top
-				h1.title the 1056
-				img( src="img/1056.svg" )
-				h2 the one thousand fifty six
-				p a collaboration focused boutique music imprint.
+			section.page-main-top.clearfix
+				.col-md-3
+					img( src="img/1056.svg" )
+				.col-md-8
+					h1.page-main-top-header the 1056
+					h2.h3 the one thousand fifty six.
+					p a collaboration focused boutique music imprint.
 			.page-main-border
 
 		main.page-main-mid
-			- var n = 30;
 			ul.list-unstyled
+				li.list-item.discog
+					a(href="https://deadworlds.bandcamp.com/", target="_blank").col-md-5
+						img( src="img/LR30-DWep.jpg").img-responsive
+					.col.md-7
+						h3 LR30 - Dead Worlds
+						p Zero Point Five ep
+						a( href="https://deadworlds.bandcamp.com/", target="_blank").btn.btn-primary listen
+			- var n = 29;
 				while n > 0
 					li.list-item LR
 						= n--
 				li.list-item
 					span.glyphicon.glyphicon-refresh
+
+			h4 <br/>the year is 2274.
+			p Your life is limited. Avoid the sandman. We are outside the walls. Find us.
 
 		script.
 			var elem = document.querySelector( '.page-main' );
@@ -52,7 +64,7 @@ html( lang='en' )
 
 			var el = document.querySelector('.page-main-border');
 			var width = el.offsetWidth / 2;
-			el.setAttribute('style', 'border-left-width: ' + width + 'px; border-right-width: ' + width + 'px;' );
+			el.setAttribute('style', 'border-left-width: 100px; border-right-width: ' + width + 'px;' );
 
 			window.addEventListener( 'resize', function(event) {
 				el.setAttribute('style', 'border-left-width: ' + width + 'px; border-right-width: ' + width + 'px;' );

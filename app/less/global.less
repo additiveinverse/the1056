@@ -13,13 +13,13 @@
 @import "twbs/scaffolding.less";
 @import "twbs/type.less";
 //@import "twbs/code.less";
-//@import "twbs/grid.less";
+@import "twbs/grid.less";
 //@import "twbs/tables.less";
 //@import "twbs/forms.less";
-//@import "twbs/buttons.less";
+@import "twbs/buttons.less";
 
 // Components
-//@import "twbs/component-animations.less";
+// @import "twbs/component-animations.less";
 // @import "twbs/dropdowns.less";
 // @import "twbs/button-groups.less";
 // @import "twbs/input-groups.less";
@@ -56,12 +56,8 @@ h1, h2, h3, h4, h5, h6 {
 	.text-uppercase;
 }
 
-.title {
-	font-weight: 700;
-}
 
 .page {
-	text-align: center;
 	&-main {
 		background-position: fixed;
 		background-repeat: no-repeat;
@@ -69,20 +65,24 @@ h1, h2, h3, h4, h5, h6 {
 		position: relative;
 
 		&-top {
-			width: 320px;
+			min-width: 320px;
+			max-width: 1024px;
 			margin: 0 auto;
 			letter-spacing: 0.3em;
-			color: @black
+			color: @black;
+
+			&-header {
+				font-weight: 700;
+			}
 		}
-		
+
 		&-border {
 			border: solid;
 			border-top-width: @padding-base-horizontal * 2;
 			border-bottom-width: @padding-base-horizontal * 2;
-			// border-width: @padding-base-horizontal * 2;
 			border-color: transparent @black @black @black;
 		}
-		
+
 		&-mid {
 			min-width: 320px;
 			max-width: 768px;
@@ -94,6 +94,14 @@ h1, h2, h3, h4, h5, h6 {
 .list-item {
 	display: inline-block;
 	vertical-align: top;
-	width: calc( ~"100% / 11" );
-	text-align: center;
+	.transition( all .25s ease-in-out);
+	&.discog {
+		display: block;
+		padding: @padding-base-horizontal @padding-base-vertical;
+		.clearfix;
+	}
+
+	&:hover {
+		background-color: @link-color;
+	}
 }
