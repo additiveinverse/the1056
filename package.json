@@ -2,6 +2,7 @@
   "name": "the1056",
   "version": "0.0.1",
   "description": "the site for the label of the same name",
+  "repository": "git@github.com:additiveinverse/the1056.git",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
