@@ -15,7 +15,6 @@ html( lang='en' )
 
 			link( href="https://fonts.googleapis.com/css?family=Rajdhani:300,700|Work+Sans", rel="stylesheet")
 			link( rel='stylesheet', type='text/css', href='css/1056.css' )
-			script( src='/js/trianglify.min.js' )
 
 	body( class='page page-' + bodyclass )
 		header( class='page-main page-main-' + bodyclass  )
@@ -24,49 +23,81 @@ html( lang='en' )
 					img( src="img/1056.svg" )
 				.col-md-8
 					h1.page-main-top-header the 1056
-					h2.h3 the one thousand fifty six.
-					p a collaboration focused boutique music imprint.
+					h2.h3 the one thousand fifty six
+					p a seller of fine quality audio products outside the walls
 			.page-main-border
 
 		main.page-main-mid
-			ul.list-unstyled
-				li.list-item.discog
+			ul.text-center.discog-pending
+				- var n = 25;
+					while n > 0
+						li.list-item.h4.mb-0 LR
+							= n-- 
+			br
+
+			article.discog
+				.disc
+					a(href="https://proem.bandcamp.com/album/as-they-go", target="_blank").col-md-5
+						img( src="img/LR26-ATG.jpg").img-responsive
+					.col-md-6
+						h3 LR26 
+							strong Proem
+						p.h5 As They Go
+						p Another pleasant stroll through an ambient garden. Any claims that this will induce nightmares are false and misleading. Nope. Not even one nightmare. No Returns or exchanges.
+						a( href="https://proem.bandcamp.com/album/as-they-go", target="_blank").btn.btn-primary BUY
+
+			article.discog
+				.disc
+					a(href="https://r84d.bandcamp.com/album/so-verand-apart", target="_blank").col-md-5
+						img( src="img/LR27-R84dep.jpg").img-responsive
+					.col-md-6
+						h3 LR27 
+							strong R84d
+						p.h5 So Verand Apart ep
+						p A collaboration between two elecronic music stalwarts Richard Bailey (proem) and Andrew Dobson (Digitonal). What could go wrong?
+						a( href="https://r84d.bandcamp.com/album/so-verand-apart", target="_blank").btn.btn-primary BUY
+
+			article.discog
+				.disc
+					a(href="https://proem.bandcamp.com/album/modern-rope", target="_blank").col-md-5
+						img( src="img/LR28-mr.jpg").img-responsive
+					.col-md-6
+						h3 LR28 
+							strong Proem
+						p.h5 Modern Rope
+						p Proem drops another spooky, dark thing full of prayers and incantations to honor the drone gods. You'll Love the implied sick beats and twinkly melodies
+						a( href="https://proem.bandcamp.com/album/modern-rope", target="_blank").btn.btn-primary BUY
+
+			article.discog
+				.disc
+					a(href="https://proem.bandcamp.com/album/til-theres-no-breath-bonus/", target="_blank").col-md-5
+						img( src="img/LR29-TTNBep.jpg").img-responsive
+					.col-md-6
+						h3 LR29 
+							strong Proem
+						p.h5 Till There's No Breath ep
+						p once lost to the sands of time this EP was a hidden download link inside the Til There's No Breath Artwork.
+						a( href="https://proem.bandcamp.com/album/til-theres-no-breath-bonus/", target="_blank").btn.btn-primary BUY
+
+			article.discog
+				.disc
 					a(href="https://deadworlds.bandcamp.com/", target="_blank").col-md-5
 						img( src="img/LR30-DWep.jpg").img-responsive
-					.col.md-7
-						h3 LR30 - Dead Worlds
-						p Zero Point Five ep
-						a( href="https://deadworlds.bandcamp.com/", target="_blank").btn.btn-primary listen
-			- var n = 29;
-				while n > 0
-					li.list-item LR
-						= n--
-				li.list-item
-					span.glyphicon.glyphicon-refresh
+					.col-md-6
+						h3 LR30 
+							strong Dead Worlds
+						p.h5 Zero Point Five ep
+						p Underground "legends in their own minds" Tanner Volz, Don Gunn and Richard Bailey, work together to weave a hot mess of synths and beats. It's awesome and you overlooked it.
+						a( href="https://deadworlds.bandcamp.com/", target="_blank").btn.btn-primary BUY
 
-			h4 <br/>the year is 2274.
-			p Your life is limited. Avoid the sandman. We are outside the walls. Find us.
 
 		script.
-			var elem = document.querySelector( '.page-main' );
-			var pattern = Trianglify({
-				width: window.innerWidth,
-				height: elem.offsetHeight,
-				cell_size: 105,
-				variance: 1,
-				color_space: 'rgb',
-				x_colors: 'Spectral'
-			});
-			var m = new XMLSerializer().serializeToString( pattern.svg() );
-			var k = window.btoa(m);
-
-			elem.style.backgroundImage = 'url("data:image/svg+xml;base64,' + k + '")';
 
 			var el = document.querySelector('.page-main-border');
 			var width = el.offsetWidth / 2;
 			el.setAttribute('style', 'border-left-width: 100px; border-right-width: ' + width + 'px;' );
 
-			window.addEventListener( 'resize', function(event) {
+			window.addEventBUYer( 'resize', function(event) {
 				el.setAttribute('style', 'border-left-width: ' + width + 'px; border-right-width: ' + width + 'px;' );
 			});
 

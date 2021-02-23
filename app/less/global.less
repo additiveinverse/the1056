@@ -56,23 +56,30 @@ h1, h2, h3, h4, h5, h6 {
 	.text-uppercase;
 }
 
+.mb-0 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
 
 .page {
 	&-main {
-		background-position: fixed;
-		background-repeat: no-repeat;
 		padding-top: @padding-base-vertical;
 		position: relative;
+		background-color: @link-color;
 
 		&-top {
 			min-width: 320px;
 			max-width: 1024px;
 			margin: 0 auto;
 			letter-spacing: 0.3em;
-			color: @black;
+			color: @white;
 
+			h2.h3 {
+				margin-top: 0;
+			}
 			&-header {
 				font-weight: 700;
+				margin-bottom: 0;
 			}
 		}
 
@@ -84,24 +91,43 @@ h1, h2, h3, h4, h5, h6 {
 		}
 
 		&-mid {
-			min-width: 320px;
-			max-width: 768px;
+			// min-width: 320px;
+			// max-width: 768px;
 			margin: 0 auto;
 		}
 	}
 }
 
-.list-item {
-	display: inline-block;
-	vertical-align: top;
-	.transition( all .25s ease-in-out);
-	&.discog {
-		display: block;
-		padding: @padding-base-horizontal @padding-base-vertical;
-		.clearfix;
+.discog {
+	margin: @padding-base-vertical 0;
+
+	&-pending {
+		margin: 0 auto;
+		max-width: 768px;
+	}
+
+	.disc {
+		min-width: 320px;
+		max-width: 1024px;
+		margin: 0 auto;
+	}
+
+	display: flex;
+	padding: @padding-base-horizontal @padding-base-vertical;
+	justify-content: space-between;
+	.transition( all .5s ease-in-out);
+
+	.img-responsive {
+		border: 12px solid @black;
 	}
 
 	&:hover {
-		background-color: @link-color;
+		background-color: fade( @link-color, 15% );
 	}
+}
+
+
+.list-item {
+	display: inline-block;
+	vertical-align: top;
 }
